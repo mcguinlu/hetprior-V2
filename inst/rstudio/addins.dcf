@@ -1,0 +1,4 @@
+Name: GetPriorID
+Description: Interactive prior look-up
+Binding: getpriorid
+Interactive: true

@@ -1,0 +1,14 @@
+citHeader("To cite hetprior in publications use:")
+
+citEntry(entry = "Unpublished",
+  title        = "Informative heterogeneity prior Look-up for Bayesian meta-analysis with {hetprior}.",
+  author       = personList(as.person("Luke A McGuinness")),
+  note         = "Detailed informationa available on Github",
+
+
+
+  textVersion  =
+  paste("Luke A McGuinness (2019).",
+        "Informative heterogeneity prior Look-up for Bayesian meta-analysis with {hetprior}.")
+
+)
