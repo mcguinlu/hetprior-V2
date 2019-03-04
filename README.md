@@ -27,10 +27,10 @@ To update the package, run the `install_github("mcguinlu/hetprior")` command aga
 ## Usage
 The `hetprior` package is comprised of two seperate functions:
 
-### get_priorid
+### `get_priorid`
 This Shiny gadget is used to interatviely select the appropriate prior distribtuion based on the users input. 
 
-### hetprior
+### `hetprior`
 The main function. Filters a look-up table of informative prior distributions based on the prior ID supplied. The specified descriptive statistic can then be assigned to a variable for subsequent use in a Bayesian meta-analysis.
 
 
