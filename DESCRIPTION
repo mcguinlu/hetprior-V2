@@ -2,10 +2,15 @@ Package: hetprior
 Type: Package
 Title: Bayesian Prior Lookup For Meta-analysis
 Version: 1.0.0
-Authors@R: person("Luke A", "McGuinness", email = "luke.mcguinness@bristol.ac.uk", role = c("aut", "cre"))
+Authors@R: person("Luke A", "McGuinness", email = "luke.mcguinness@bristol.ac.uk",
+  role = c("aut", "cre"))
 Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
 Depends: R (>= 3.5.0)
+Imports: 
+    shiny,
+    miniUI
