@@ -45,12 +45,14 @@ server <- function(input, output, session) {
     v <- reactiveValues(data = NULL, buttonclick = 0)
     shiny::observeEvent(input$hetstat,{
       v$buttonclick <- 0
+      v$priorid <- NULL
       shiny::updateSelectInput(session,'datatype',
                         choices = c("", unique(as.character(hetdata$Data.Type[hetdata$Heterogeneity.statistic==input$hetstat]))))
     })
 
     shiny::observeEvent(input$datatype,{
       v$buttonclick <- 0
+      v$priorid <- NULL
       shiny::updateSelectInput(session,'effectmeasure',
                         choices = c("", unique(as.character(hetdata$Effect.Measure[hetdata$Heterogeneity.statistic==input$hetstat &
                                                                                      hetdata$Data.Type==input$datatype]))))
@@ -58,6 +60,7 @@ server <- function(input, output, session) {
 
     shiny::observeEvent(input$effectmeasure,{
       v$buttonclick <- 0
+      v$priorid <- NULL
       shiny::updateSelectInput(session,'distributionform',
                         choices = c("", unique(as.character(hetdata$Distribution.form[hetdata$Heterogeneity.statistic==input$hetstat &
                                                                                         hetdata$Data.Type==input$datatype &
@@ -66,6 +69,7 @@ server <- function(input, output, session) {
 
     shiny::observeEvent(input$distributionform,{
       v$buttonclick <- 0
+      v$priorid <- NULL
       shiny::updateSelectInput(session,'interventiontype',
                         choices = c("", unique(as.character(hetdata$Type.of.Intervention[hetdata$Heterogeneity.statistic==input$hetstat &
                                                                                            hetdata$Data.Type==input$datatype &
@@ -75,6 +79,7 @@ server <- function(input, output, session) {
 
     shiny::observeEvent(input$interventiontype,{
       v$buttonclick <- 0
+      v$priorid <- NULL
       shiny::updateSelectInput(session,'natureoutcome',
                         choices = c("", unique(as.character(hetdata$Nature.of.Outcome[hetdata$Heterogeneity.statistic==input$hetstat &
                                                                                         hetdata$Data.Type==input$datatype &
@@ -85,6 +90,7 @@ server <- function(input, output, session) {
 
     shiny::observeEvent(input$natureoutcome,{
       v$buttonclick <- 0
+      v$priorid <- NULL
       shiny::updateSelectInput(session,'medicalarea',
                         choices = c("", unique(as.character(hetdata$Medical.area[hetdata$Heterogeneity.statistic==input$hetstat &
                                                                                    hetdata$Data.Type==input$datatype &
@@ -97,6 +103,7 @@ server <- function(input, output, session) {
 
     shiny::observeEvent(input$medicalarea,{
       v$buttonclick <- 0
+      v$priorid <- NULL
       shiny::updateSelectInput(session,'samplesize',
                         choices = c("", unique(as.character(hetdata$Average.Sample.Size[hetdata$Heterogeneity.statistic==input$hetstat &
                                                                                           hetdata$Data.Type==input$datatype &
@@ -252,15 +259,14 @@ output$lowquant <- shiny::renderText(as.character(v$lowquant))
 output$highquant <- shiny::renderText(as.character(v$highquant))
 output$notes1 <- shiny::renderText(as.character(v$notes1))
 
-output$prioridui <-
-  shiny::renderUI({shiny::p(shiny::em("Prior ID:"), shiny::textOutput("priorid"))})
+ output$prioridui <-
+ shiny::renderUI({if(v$buttonclick!=0){shiny::p(shiny::em("Prior ID:"), shiny::textOutput("priorid"))}})
 
-output$meanui <-
-  shiny::renderUI({
-    shiny::p(shiny::em("Mean/Shape:"), shiny::textOutput("mean"))})
+ output$meanui <-
+ shiny::renderUI({if(v$buttonclick!=0){shiny::p(shiny::em("Mean/Shape:"), shiny::textOutput("mean"))}})
 
-output$sdui <-
-  shiny::renderUI({shiny::p(shiny::em("Standard deviation/scale:"), shiny::textOutput("sd"))})
+ output$sdui <-
+ shiny::renderUI({if(v$buttonclick!=0){shiny::p(shiny::em("Standard deviation/scale:"), shiny::textOutput("sd"))}})
 
 
     shiny::observeEvent(input$done, {
