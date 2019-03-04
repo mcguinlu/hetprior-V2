@@ -14,21 +14,18 @@ This R package is designed to be used with the `hetprior` [web app](http://hetpr
 First ensure you have the `devtools` package installed:
 
     install.packages("devtools")
+    library(devtools)
 
 Then to install:
-
-    library(devtools)
+    
     install_github("mcguinlu/hetprior")
+    library(hetprior)
 
 To update the package, run the `install_github("mcguinlu/hetprior")` command again.
 
 
-
-
 ## Usage
 `hetprior` allows users to easily access the descriptive statistics of set 
-
-
 
 
 ## Examples
@@ -40,7 +37,29 @@ General example:
 By adding the `details = TRUE` option:
     
     priormean <- hetprior(4,"mean", details = TRUE)
-       
+    # Prior look-up results: 
+    # Input: 
+    #   Prior ID:                 4 
+    #   Heterogeneity statistic:  Tau-squared 
+    #   Data type:                Binary 
+    #   Effect measure:           Log odds ratio 
+    #   Distribution form:        Log normal 
+    #   Type of Intervention:     Pharmacological vs placebo/control 
+    #   Nature of outcome:        Subjective 
+    #   Medical area:             Any 
+    #   Average sample size:      Any 
+    # 
+    # Output: 
+    #   Prior Mean      =   -2.13 
+    #   Prior SD        =   1.58 
+    #   Prior variance  =   2.4964 
+    #   Prior Median    =   0.12 
+    #   Low 95% CI      =   0.005 
+    #   High 95% CI     =   2.63 
+    # 
+    # Notes: Fitted distribution reported as log-normal(u,o^2), where u and o are the Mean and SD presented on log scale. Median/range       # presented on untransformed scale. Subjective/semi-objective outcomes and non-pharmacoloical interventions defined in Table 2 of       # the paper. 
+    # 
+    # Reference: Turner, Rebecca M., Jonathan Davey, Mike J. Clarke, Simon G. Thompson, and Julian PT Higgins. "Predicting the extent of     # heterogeneity in meta-analysis, using empirical data from the Cochrane Database of Systematic Reviews." International Journal of       # Epidemiology 41, no. 3 (2012): 818-827.    
    
 ## Relevant Publications 
 
