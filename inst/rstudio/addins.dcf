@@ -1,4 +1,4 @@
-Name: GetPriorID
+Name: Get Prior ID
 Description: Interactive prior look-up
-Binding: getpriorid
+Binding: get_priorid
 Interactive: true

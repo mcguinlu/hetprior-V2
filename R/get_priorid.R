@@ -12,8 +12,6 @@ get_priorid <- function() {
       scrollable = FALSE,
       shiny::p("Please complete the boxes below, and select submit to view the relevant prior."),
       shiny::p("Once you are happy with your selection, click 'Done' to export the Prior ID to R for use with", shiny::em("hetprior")),
-      shiny::p("Note: choices are updated based on your input into the previous boxes."),
-
       shiny::fillRow(
       shiny::fillCol(
       shiny::h3("Conditions:"),
@@ -29,14 +27,15 @@ get_priorid <- function() {
       shiny::uiOutput("medicalareaui"),
       shiny::uiOutput("samplesizeui"),
       shiny::uiOutput("actiondoui"),
-      shiny::actionButton("clear","Clear")),
+      height = "90%"),
 
       shiny::fillCol(
       shiny::h3("Results:"),
       shiny::uiOutput("prioridui"),
       shiny::uiOutput("meanui"),
       shiny::uiOutput("sdui"),
-      height = "40%")
+      shiny::uiOutput("clearui"),
+      height = "45%")
       )
     )
   )
@@ -268,6 +267,9 @@ output$notes1 <- shiny::renderText(as.character(v$notes1))
  output$sdui <-
  shiny::renderUI({if(v$buttonclick!=0){shiny::p(shiny::em("Standard deviation/scale:"), shiny::textOutput("sd"))}})
 
+ output$clearui <-
+ shiny::renderUI({if(v$buttonclick!=0){shiny::actionButton("clear","Clear")}})
+
 
     shiny::observeEvent(input$done, {
       shiny::stopApp(v$priorid)
@@ -277,5 +279,5 @@ output$notes1 <- shiny::renderText(as.character(v$notes1))
     })
   }
 
-  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID", width = 800, height = 900))
+  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID", width = 800, height = 800))
 }
