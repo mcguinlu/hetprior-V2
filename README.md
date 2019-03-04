@@ -25,16 +25,27 @@ To update the package, run the `install_github("mcguinlu/hetprior")` command aga
 
 
 ## Usage
-`hetprior` allows users to easily access the descriptive statistics of set 
+The `hetprior` package is comprised of two seperate functions:
+
+### get_priorid
+This Shiny gadget is used to interatviely select the appropriate prior distribtuion based on the users input. 
+
+### hetprior
+The main function. Filters a look-up table of informative prior distributions based on the prior ID supplied. The specified descriptive statistic can then be assigned to a variable for subsequent use in a Bayesian meta-analysis.
 
 
 ## Examples
-General example:
+Launch Shiny gadget to allow easy selection of appropriate prior based on conditions:
 
-    priormean <- hetprior(4,"mean")
-    priorsd <- hetprior(4,"sd")
+    priorid < get_priorid()
+    
+Use the resulting prior ID to create variables representing the descriptive statistics of that prior distribution:
+
+    priormean <- hetprior(priorid,"mean")
+    priorsd <- hetprior(priorid,"sd")
      
-By adding the `details = TRUE` option:
+     
+ adding the `details = TRUE` option:
     
     priormean <- hetprior(4,"mean", details = TRUE)
     # Prior look-up results: 
@@ -57,9 +68,13 @@ By adding the `details = TRUE` option:
     #   Low 95% CI      =   0.005 
     #   High 95% CI     =   2.63 
     # 
-    # Notes: Fitted distribution reported as log-normal(u,o^2), where u and o are the Mean and SD presented on log scale. Median/range       # presented on untransformed scale. Subjective/semi-objective outcomes and non-pharmacoloical interventions defined in Table 2 of       # the paper. 
+    # Notes: Fitted distribution reported as log-normal(u,o^2), where u and o are the Mean and SD presented on log scale. Median/range 
+    # presented on untransformed scale. Subjective/semi-objective outcomes and non-pharmacoloical interventions defined in Table 2 of
+    # the paper. 
     # 
-    # Reference: Turner, Rebecca M., Jonathan Davey, Mike J. Clarke, Simon G. Thompson, and Julian PT Higgins. "Predicting the extent of     # heterogeneity in meta-analysis, using empirical data from the Cochrane Database of Systematic Reviews." International Journal of       # Epidemiology 41, no. 3 (2012): 818-827.    
+    # Reference: Turner, Rebecca M., Jonathan Davey, Mike J. Clarke, Simon G. Thompson, and Julian PT Higgins. "Predicting the extent of 
+    # heterogeneity in meta-analysis, using empirical data from the Cochrane Database of Systematic Reviews." International Journal of
+    # Epidemiology 41, no. 3 (2012): 818-827.    
    
 ## Relevant Publications 
 
