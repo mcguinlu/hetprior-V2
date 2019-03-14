@@ -33,7 +33,9 @@ This Shiny gadget is used to interactively select the appropriate prior distribt
 ## Example of workflow using the `hetprior` package
 Launch the Shiny gadget to allow easy selection of appropriate prior based on conditions:
 
-    priorid <- get_priorid()
+    get_priorid()
+    [1] 12
+    priorid <- 12
     
 > Need screenshot of gadget here, or better yet, a gif.    
     
@@ -72,7 +74,13 @@ Adding the `details = TRUE` option gives more information on the prior specifica
     # Reference: Turner, Rebecca M., Jonathan Davey, Mike J. Clarke, Simon G. Thompson, and Julian PT Higgins. "Predicting the extent of 
     # heterogeneity in meta-analysis, using empirical data from the Cochrane Database of Systematic Reviews." International Journal of
     # Epidemiology 41, no. 3 (2012): 818-827.    
-  
+ 
+### Reproductibility
+It may be tempting to assign the value returned by `get_priorid()` directly a variable, for example:
+
+    priorid <- get_priorid()
+    
+However, for the sake of reproducibility, this approach should be avoided, as in the example above, the value of priorid is explicitly defined and recorded within the script.
   
 ## Relevant Publications 
 Details of the informative prior distributions were extracted from the following 5 publications:
