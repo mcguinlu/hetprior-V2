@@ -27,7 +27,7 @@ get_priorid <- function() {
       shiny::uiOutput("medicalareaui"),
       shiny::uiOutput("samplesizeui"),
       shiny::uiOutput("actiondoui"),
-      height = "90%"),
+      height = "100%"),
 
       shiny::fillCol(
       shiny::h3("Results:"),
