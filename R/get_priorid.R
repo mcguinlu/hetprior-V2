@@ -19,7 +19,7 @@ get_priorid <- function() {
                        choices = c(unique(as.character(hetdata$Heterogeneity.statistic))),
                        options = list(placeholder = 'Choose',
                                       onInitialize = I('function() { this.setValue(""); }'))),
-      shiny::uiOutput("datatypeui"),
+      br(shiny::uiOutput("datatypeui")),
       shiny::uiOutput("effectmeasureui"),
       shiny::uiOutput("distformui"),
       shiny::uiOutput("interventiontypeui"),
