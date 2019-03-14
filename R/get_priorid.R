@@ -279,5 +279,5 @@ output$notes1 <- shiny::renderText(as.character(v$notes1))
     })
   }
 
-  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID", width = 800, height = 800))
+  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID"))
 }
