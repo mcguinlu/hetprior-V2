@@ -29,14 +29,15 @@ To update the package, run the `install_github("mcguinlu/hetprior")` command aga
 ## Usage
 The `hetprior` package is comprised of two seperate functions:
 
-### `get_priorid()`
-This Shiny gadget is used to interatviely select the appropriate prior distribtuion based on the users input. 
-
 ### `hetprior()`
-The main function. Filters a look-up table of informative prior distributions based on the prior ID supplied. The specified descriptive statistic can then be assigned to a variable for subsequent use in a Bayesian meta-analysis.
+Main function. Filters a look-up table of informative prior distributions based on the prior ID supplied. Prior ID can be identified within r using the supporting `get_priorid()` function, or online via a [Shiny webapp](https://mcguinlu.shinyapps.io/shiny/). The specified descriptive statistic (e.g. mean or standard deviation) is then be assigned to a variable for subsequent use in a Bayesian meta-analysis.
+
+### `get_priorid()`
+This Shiny gadget is used to interactively select the appropriate prior distribtuion based on user input. 
 
 
-## Examples
+
+## Example of workflow using the `hetprior` package
 Launch Shiny gadget to allow easy selection of appropriate prior based on conditions:
 
     priorid <- get_priorid()
@@ -47,7 +48,7 @@ Use the resulting prior ID to create variables representing the descriptive stat
     priorsd <- hetprior(priorid,"sd")
      
      
- adding the `details = TRUE` option:
+Adding the `details = TRUE` option gives more information on the prior specification and descriptive statistics:
     
     priormean <- hetprior(4,"mean", details = TRUE)
     # Prior look-up results: 
