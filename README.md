@@ -31,16 +31,17 @@ This Shiny gadget is used to interactively select the appropriate prior distribt
 
 
 ## Example of workflow using the `hetprior` package
-Launch Shiny gadget to allow easy selection of appropriate prior based on conditions:
+Launch the Shiny gadget to allow easy selection of appropriate prior based on conditions:
 
     priorid <- get_priorid()
+    
+> Need screenshot of gadget here, or better yet, a gif.    
     
 Use the resulting prior ID to create variables representing the descriptive statistics of that prior distribution:
 
     priormean <- hetprior(priorid,"mean")
     priorsd <- hetprior(priorid,"sd")
-     
-     
+         
 Adding the `details = TRUE` option gives more information on the prior specification and descriptive statistics:
     
     priormean <- hetprior(4,"mean", details = TRUE)
