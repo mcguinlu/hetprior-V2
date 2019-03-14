@@ -2,14 +2,8 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/mcguinlu/hetprior.svg?branch=master)](https://travis-ci.org/mcguinlu/hetprior)
 
-
-
-
 ## Background
-This R package is designed to be used with the `hetprior` [web app](http://hetprior.info), a tool that allows for easy specifiation of prior conditions and auto-generates the R code needed.
-
-
-
+This R package allows for easy specifiation of prior distributions for use in Bayesian meta-analysis, based on user-specified conditions. 
 
 
 ## Installing the `hetprior` R package
@@ -34,7 +28,6 @@ Main function. Filters a look-up table of informative prior distributions based 
 
 ### `get_priorid()`
 This Shiny gadget is used to interactively select the appropriate prior distribtuion based on user input. 
-
 
 
 ## Example of workflow using the `hetprior` package
@@ -78,7 +71,8 @@ Adding the `details = TRUE` option gives more information on the prior specifica
     # Reference: Turner, Rebecca M., Jonathan Davey, Mike J. Clarke, Simon G. Thompson, and Julian PT Higgins. "Predicting the extent of 
     # heterogeneity in meta-analysis, using empirical data from the Cochrane Database of Systematic Reviews." International Journal of
     # Epidemiology 41, no. 3 (2012): 818-827.    
-   
+  
+  
 ## Relevant Publications 
 
 * Turner RM, Davey J, Clarke MJ, Thompson SG, Higgins JP. [Predicting the extent of heterogeneity in meta-analysis, using empirical data from the Cochrane Database of Systematic Reviews](https://doi.org/10.1093/ije/dys041). International Journal of Epidemiology. 2012;41(3):818-827.
