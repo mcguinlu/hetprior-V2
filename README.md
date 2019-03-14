@@ -80,7 +80,7 @@ It may be tempting to assign the value returned by `get_priorid()` directly a va
 
     priorid <- get_priorid()
     
-However, for the sake of reproducibility, this approach should be avoided, as in the example above, the value of priorid is explicitly defined and recorded within the script.
+However, for the sake of reproducibility, this approach should be avoided, as in the example above, the value of `priorid` is explicitly defined and recorded within the script.
   
 ## Relevant Publications 
 Details of the informative prior distributions were extracted from the following 5 publications:
