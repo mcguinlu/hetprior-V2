@@ -10,7 +10,7 @@ get_priorid <- function() {
     miniUI::gadgetTitleBar("Prior ID Selection Tool"),
     miniUI::miniContentPanel(
       scrollable = FALSE,
-      shiny::p("Please complete the boxes below, and select submit to view the relevant prior."),
+      shiny::p("Please complete the boxes on the left below, and select submit to view the relevant prior."),
       shiny::p("Once you are happy with your selection, click 'Done' to export the Prior ID to R for use with", shiny::em("hetprior")),
       shiny::fillRow(
       shiny::fillCol(
@@ -19,18 +19,23 @@ get_priorid <- function() {
                        choices = c(unique(as.character(hetdata$Heterogeneity.statistic))),
                        options = list(placeholder = 'Choose',
                                       onInitialize = I('function() { this.setValue(""); }'))),
-      shiny::hr(),
+      shiny::br(),
       shiny::uiOutput("datatypeui"),
-      shiny::hr(),
+      shiny::br(),
       shiny::uiOutput("effectmeasureui"),
-      shiny::hr(),
+      shiny::br(),
       shiny::uiOutput("distformui"),
+      shiny::br(),
       shiny::uiOutput("interventiontypeui"),
+      shiny::br(),
       shiny::uiOutput("natureoutcomeui"),
+      shiny::br(),
       shiny::uiOutput("medicalareaui"),
+      shiny::br(),
       shiny::uiOutput("samplesizeui"),
-      shiny::uiOutput("actiondoui")
-      ),
+      shiny::br(),
+      shiny::uiOutput("actiondoui"),
+      height = "90%"),
 
       shiny::fillCol(
       shiny::h3("Results:"),
@@ -282,5 +287,5 @@ output$notes1 <- shiny::renderText(as.character(v$notes1))
     })
   }
 
-  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID"))
+  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID", height = 1300, width = 900))
 }
