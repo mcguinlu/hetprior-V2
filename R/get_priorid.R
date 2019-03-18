@@ -9,7 +9,7 @@ get_priorid <- function() {
   ui <- miniUI::miniPage(
     miniUI::gadgetTitleBar("Prior ID Selection Tool"),
     miniUI::miniContentPanel(
-      scrollable = FALSE,
+      scrollable = TRUE,
       shiny::p("Please complete the boxes on the left below, and select submit to view the relevant prior."),
       shiny::p("Once you are happy with your selection, click 'Done' to export the Prior ID to R for use with", shiny::em("hetprior")),
       shiny::fillRow(
@@ -26,7 +26,8 @@ get_priorid <- function() {
       shiny::uiOutput("natureoutcomeui"),
       shiny::uiOutput("medicalareaui"),
       shiny::uiOutput("samplesizeui"),
-      shiny::uiOutput("actiondoui")
+      shiny::uiOutput("actiondoui"),
+      height = "90%"
       ),
 
       shiny::fillCol(
@@ -35,8 +36,10 @@ get_priorid <- function() {
       shiny::uiOutput("meanui"),
       shiny::uiOutput("sdui"),
       shiny::uiOutput("clearui"),
-      height = "45%")
+      height = "45%"
       )
+      ), flex = c(3, 2)
+
     )
   )
 
@@ -279,5 +282,5 @@ output$notes1 <- shiny::renderText(as.character(v$notes1))
     })
   }
 
-  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID", height = 1300, width = 900))
+  shiny::runGadget(ui, server, viewer = shiny::dialogViewer("Prior ID", width = 900, height = 800))
 }
