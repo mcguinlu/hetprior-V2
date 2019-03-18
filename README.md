@@ -2,10 +2,6 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/mcguinlu/hetprior.svg?branch=master)](https://travis-ci.org/mcguinlu/hetprior)
 
-## Background
-This R package allows for easy specifiation of prior distributions for use in Bayesian meta-analysis, based on user-specified conditions. 
-
-
 ## Installing the `hetprior` R package
 First ensure you have the `devtools` package installed:
 
@@ -19,18 +15,17 @@ Then to install:
 
 To update the package, run the `install_github("mcguinlu/hetprior")` command again.
 
+## Description
+We have written the `hetprior` R package to allow for easy specifiation of prior distributions for use in Bayesian meta-analysis, based on user-specified conditions. The package contains two functions:
 
-## Usage
-The `hetprior` package is comprised of two seperate functions:
-
-### `hetprior()`
+### 1. `hetprior()`
 Main function. Filters a look-up table of informative prior distributions based on the prior ID supplied. Prior ID can be identified within r using the supporting `get_priorid()` function, or online via a [Shiny webapp](https://mcguinlu.shinyapps.io/shiny/). The specified descriptive statistic (e.g. mean or standard deviation) is then be assigned to a variable for subsequent use in a Bayesian meta-analysis.
 
-### `get_priorid()`
+### 2. `get_priorid()`
 This Shiny gadget is used to interactively select the appropriate prior distribtuion based on user input. 
 
-
-## Example of workflow using the `hetprior` package
+## Usage
+### Example workflow using the `hetprior` package
 Launch the Shiny gadget to allow easy selection of appropriate prior based on conditions:
 
     get_priorid()
