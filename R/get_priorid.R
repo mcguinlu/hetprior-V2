@@ -15,19 +15,36 @@ get_priorid <- function() {
       shiny::fillRow(
       shiny::fillCol(
       shiny::h3("Conditions:"),
-      shiny::selectizeInput("hetstat", label = "Heterogeneity statistic:",
+      shiny::fillRow(
+      em("Heterogeneity statistic:"),
+      shiny::selectizeInput("hetstat",
                        choices = c(unique(as.character(hetdata$Heterogeneity.statistic))),
-                       options = list(placeholder = 'Choose',
-                                      onInitialize = I('function() { this.setValue(""); }'))),
-      shiny::uiOutput("datatypeui"),
-      shiny::uiOutput("effectmeasureui"),
-      shiny::uiOutput("distformui"),
+                       label = "",
+                       options = list(placeholder = 'Heterogeneity statistic:',
+                                      onInitialize = I('function() { this.setValue(""); }')))),
+      fillRow(
+      em("Data type:"),
+      shiny::uiOutput("datatypeui")),
+
+      fillRow(
+      em("Effect measure:          "), shiny::uiOutput("effectmeasureui")),
+
+      fillRow(
+      em("Distribution form:       "),
+      shiny::uiOutput("distformui")),
+
       shiny::uiOutput("interventiontypeui"),
+
       shiny::uiOutput("natureoutcomeui"),
+
       shiny::uiOutput("medicalareaui"),
+
       shiny::uiOutput("samplesizeui"),
+
       shiny::uiOutput("actiondoui"),
-      height = "90%"
+
+      height = "90%",
+      width = "80%"
       ),
 
       shiny::fillCol(
@@ -36,7 +53,8 @@ get_priorid <- function() {
       shiny::uiOutput("meanui"),
       shiny::uiOutput("sdui"),
       shiny::uiOutput("clearui"),
-      height = "45%"
+      height = "45%",
+      width = "50%"
       )
       ), flex = c(3, 2)
 
@@ -121,9 +139,9 @@ server <- function(input, output, session) {
       shiny::renderUI({
         if (is.null(input$hetstat)){}else{
           if (input$hetstat!=""){
-            shiny::selectizeInput("datatype", label = "Data type:",
+            shiny::selectizeInput("datatype", label = "",
                            choices = NULL,
-                           options = list(placeholder = 'Choose',
+                           options = list(placeholder = 'Data type:',
                                           onInitialize = I('function() { this.setValue(""); }')))
           }}})
 
@@ -131,9 +149,9 @@ server <- function(input, output, session) {
       shiny::renderUI({
         if (is.null(input$datatype)){}else{
           if (input$hetstat!="" & input$datatype!=""){
-            shiny::selectizeInput("effectmeasure", label = "Effect measure:",
+            shiny::selectizeInput("effectmeasure", label = "",
                            choices = NULL,
-                           options = list(placeholder = 'Choose',
+                           options = list(placeholder = 'Effect measure:',
                                           onInitialize = I('function() { this.setValue(""); }')))
           }}})
 
@@ -141,9 +159,9 @@ server <- function(input, output, session) {
       shiny::renderUI({
         if (is.null(input$effectmeasure)){}else{
           if (input$hetstat!="" & input$datatype!="" & input$effectmeasure!=""){
-            shiny::selectizeInput("distributionform", label = "Distribution form:",
+            shiny::selectizeInput("distributionform", label = "",
                            choices = NULL,
-                           options = list(placeholder = 'Choose',
+                           options = list(placeholder = 'Distribution form:',
                                           onInitialize = I('function() { this.setValue(""); }')))
           }}})
 
@@ -151,9 +169,9 @@ server <- function(input, output, session) {
       shiny::renderUI({
         if (is.null(input$distributionform)){}else{
           if (input$hetstat!="" & input$datatype!="" & input$effectmeasure!="" & input$distributionform!=""){
-            shiny::selectizeInput("interventiontype", label = "Type of intervention:",
+            shiny::selectizeInput("interventiontype", label = "",
                            choices = NULL,
-                           options = list(placeholder = 'Choose',
+                           options = list(placeholder = 'Type of intervention:',
                                           onInitialize = I('function() { this.setValue(""); }')))
           }}})
 
@@ -161,9 +179,9 @@ server <- function(input, output, session) {
       shiny::renderUI({
         if (is.null(input$interventiontype)){}else{
           if (input$hetstat!="" & input$datatype!="" & input$effectmeasure!="" & input$distributionform!="" & input$interventiontype!=""){
-            shiny::selectizeInput("natureoutcome", label = "Nature of Outcome:",
+            shiny::selectizeInput("natureoutcome", label = "",
                            choices = NULL,
-                           options = list(placeholder = 'Choose',
+                           options = list(placeholder = 'Nature of Outcome:',
                                           onInitialize = I('function() { this.setValue(""); }')))
           }}})
 
@@ -177,9 +195,9 @@ server <- function(input, output, session) {
               input$interventiontype!="" &
               input$natureoutcome!=""
               ){
-            shiny::selectizeInput("medicalarea", label = "Medical area:",
+            shiny::selectizeInput("medicalarea", label = "",
                            choices = NULL,
-                           options = list(placeholder = 'Choose',
+                           options = list(placeholder = 'Medical area:',
                                           onInitialize = I('function() { this.setValue(""); }')))
           }}})
 
@@ -193,9 +211,10 @@ server <- function(input, output, session) {
               input$interventiontype!="" &
               input$natureoutcome!=""
               ){
-            shiny::selectizeInput("samplesize", label = "Average sample size:",
+            p("Average sample size")
+            shiny::selectizeInput("samplesize", label = "",
                            choices = NULL,
-                           options = list(placeholder = 'Choose',
+                           options = list(placeholder = 'Average sample size:',
                                           onInitialize = I('function() { this.setValue(""); }')))
           }}})
 
