@@ -25,7 +25,7 @@ Main function. Filters a look-up table of informative prior distributions based 
 This Shiny gadget is used to interactively select the appropriate prior distribtuion based on user input. 
 
 ## Usage
-### Example of workflow using the `hetprior` package
+### Example workflow using the `hetprior` package
 Launch the Shiny gadget to allow easy selection of appropriate prior based on conditions:
 
     get_priorid()
